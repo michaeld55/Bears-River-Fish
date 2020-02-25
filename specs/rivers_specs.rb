@@ -27,7 +27,22 @@ class TestRiver < MiniTest::Test
 
   end
 
+  def test_add_fish()
+
+    @river1.add_fish( @fish1 )
+    assert_equal( 1, @river1.fishes().size())
+
+  end
+
+  def test_remove_fish()
+    @river1.add_fish( @fish1 )
+    @river1.remove_fish( @fish1 )
+    assert_equal( 0, @river1.fishes().size())
+
+  end
+
 end
 # A river should have a name e.g. "Amazon"
 # - A river should hold many fish
 # - A fish should have a name
+# - A river should lose a fish when a bear takes a fish

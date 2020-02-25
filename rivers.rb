@@ -8,7 +8,20 @@ class River
       @fishes = []
 
     end
+
+    def add_fish( new_fish)
+
+      @fishes.push( new_fish )
+
+    end
+
+    def remove_fish( removed_fish )
+
+      @fishes.delete( removed_fish )
+
+    end
 end
+
 
 # A river should have a name e.g. "Amazon"
 # - A river should hold many fish

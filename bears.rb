@@ -1,3 +1,4 @@
+require("pry-byebug")
 class Bear
 
   attr_reader( :name, :type, :stomach )
@@ -7,6 +8,23 @@ class Bear
     @name = name
     @type = type
     @stomach = []
+
+  end
+
+  def add_food( food )
+
+    @stomach.push( food )
+    # binding.pry
+  end
+
+  def eat_fish( river )
+
+    food = river.fishes().first()
+    add_food( food )
+
+    river.remove_fish( food )
+    # binding.pry
+
 
   end
 
