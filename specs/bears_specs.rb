@@ -13,7 +13,7 @@ class TestBear < MiniTest::Test
 
   def setup()
 
-    @bear1 = Bear.new( "Yogi", "Grizzly" )
+    @bear1 = Bear.new( "Yogi", "Grizzly", "Pinic basket" )
     @fish1 = Fish.new( "Fred" )
     @fish2 = Fish.new( "Finn" )
     @river1 = River.new( "Amazon" )
@@ -54,10 +54,21 @@ class TestBear < MiniTest::Test
     assert_equal( 1, @river1.fishes().size)
 
   end
+
+  def test_roar()
+
+    assert_equal( "Pinic basket", @bear1.roar())
+
+  end
+
+  def test_food_count()
+
+    @river1.add_fish( @fish1 )
+    @river1.add_fish( @fish2 )
+    @bear1.eat_fish( @river1 )
+    @bear1.eat_fish( @river1 )
+    assert_equal(2, @bear1.food_count())
+
+
+  end
 end
-
-
-# - A bear should have a name e.g. "Yogi" and a type e.g. "Grizzly"
-# - A bear should have an empty stomach ( maybe an array )
-#
-# - A bear should be able to take a fish from the river

@@ -1,20 +1,21 @@
 require("pry-byebug")
 class Bear
 
-  attr_reader( :name, :type, :stomach )
+  attr_reader( :name, :type, :stomach, :roar )
 
-  def initialize( name, type )
+  def initialize( name, type, roar )
 
     @name = name
     @type = type
     @stomach = []
+    @roar = roar
 
   end
 
   def add_food( food )
 
     @stomach.push( food )
-    # binding.pry
+
   end
 
   def eat_fish( river )
@@ -23,14 +24,13 @@ class Bear
     add_food( food )
 
     river.remove_fish( food )
-    # binding.pry
 
+  end
+
+  def food_count()
+
+    return @stomach.size()
 
   end
 
 end
-
-# <!-- - A bear should have a name e.g. "Yogi" and a type e.g. "Grizzly"
-# - A bear should have an empty stomach ( maybe an array )
-#
-# - A bear should be able to take a fish from the river -->
