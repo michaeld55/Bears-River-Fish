@@ -10,7 +10,8 @@ Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 class TestRiver < MiniTest::Test
 
   def setup()
-
+    @fish1 = Fish.new( "Fred" )
+    @fish2 = Fish.new( "Finn" )
     @river1 = River.new( "Amazon" )
 
   end
@@ -41,8 +42,12 @@ class TestRiver < MiniTest::Test
 
   end
 
+  def test_fish_count()
+
+    @river1.add_fish( @fish1 )
+    @river1.add_fish( @fish2 )
+    assert_equal(2, @river1.fish_count())
+
+  end
+
 end
-# A river should have a name e.g. "Amazon"
-# - A river should hold many fish
-# - A fish should have a name
-# - A river should lose a fish when a bear takes a fish

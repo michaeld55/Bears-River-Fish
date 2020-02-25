@@ -20,6 +20,12 @@ class River
       @fishes.delete( removed_fish )
 
     end
+
+    def fish_count
+
+      @fishes.size()
+
+    end
 end
 
 
